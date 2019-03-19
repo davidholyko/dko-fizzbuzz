@@ -1,1 +1,100 @@
 @import '~bootstrap/scss/bootstrap';
+
+html {}
+
+body {
+  width: 100vw;
+  max-width: 100%;
+}
+
+#fizzbuzz-button {
+  margin: 1% 25%;
+  width: 50%;
+  height: 50%;
+  font-size: 3rem;
+  text-align: center;
+  background-color: black;
+  color: white;
+  border-radius: 1rem;
+
+  &:hover {
+    background-color: silver;
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: blue;
+  }
+}
+
+#numbers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.number {
+  width: 5rem;
+  height: 5rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  color: white;
+  margin: 5px;
+  font-size: 3rem;
+
+  &:hover {
+    background-color: green;
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: darkgreen;
+  }
+}
+
+#words {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.word {
+  width: 8rem;
+  height: 5rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: purple;
+  color: white;
+  margin: 5px;
+  font-size: 3rem;
+
+  &:hover {
+    background-color: pink;
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: #E75480;
+  }
+}
+
+#page {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  background-color: DarkSlateGrey;
+  display: flex;
+  justify-content: center;
+}
+
+#page-container {
+  width: 80%;
+  background-color: white;
+}

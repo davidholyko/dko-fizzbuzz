@@ -6,6 +6,12 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
+const view = require('./fizzbuzz/view')
+const events = require('./fizzbuzz/events')
+const storeSkeleton = require('./fizzbuzz/store-skeleton')
+
 $(() => {
-  // your JS code goes here
+  storeSkeleton.initializeStore()
+  events.addHandlers()
+  view.onPageLoad()
 })
