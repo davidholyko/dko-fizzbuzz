@@ -1,13 +1,11 @@
-const fizzbuzz = function (nums, strings, max) {
-  for (let i = 0; i < max; i++) {
+const fizzbuzz = function (values, max) {
+  console.log('fizzbuzz')
+  for (let i = 1; i <= max; i++) {
     let output = ''
-    nums.forEach((item, index) => { if (!(i % nums[index])) { output += strings[index] } })
+    values.forEach((item, index) => { if (!(i % values[index].number)) { output += values[index].word } })
     output ? console.log(output) : console.log(i)
+    output ? $('#fizzbuzz-output').append(output) : $('#fizzbuzz-output').append(i)
   }
 }
 
-fizzbuzz([3, 5, 4], ['fizz', 'buzz', 'fuzz'], 100)
-
-module.exports = {
-  fizzbuzz
-}
+module.exports = fizzbuzz
