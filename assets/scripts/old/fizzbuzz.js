@@ -1,4 +1,4 @@
-console.log('fizzbuzz')
+console.log('\nfizzbuzz the most straight forward way\n')
 
 let fizzbuzz = () => {
   for (let i = 1; i <= 100; i++) {
@@ -22,7 +22,7 @@ fizzbuzz()
 
 // /////////////////////////////////////////////////////////////////////////////////////////
 
-console.log('fizzbuzz with loop skipping using keyword: continue')
+console.log('\nfizzbuzz with loop skipping using keyword: continue\n')
 
 fizzbuzz = () => {
   for (let i = 1; i <= 100; i++) {
@@ -44,7 +44,7 @@ fizzbuzz()
 
 // /////////////////////////////////////////////////////////////////////////////////////////
 
-console.log('fizzbuzz with appending strings')
+console.log('\nfizzbuzz with appending strings\n')
 
 fizzbuzz = () => {
   for (let i = 1; i <= 100; i++) {
@@ -52,7 +52,7 @@ fizzbuzz = () => {
     if (i % 3 === 0) { output += 'fizz' }
     if (i % 5 === 0) { output += 'buzz' }
 
-    if (output) { console.log(i) } else { console.log(output) }
+    if (output) { console.log(output) } else { console.log(i) }
   }
 }
 
@@ -67,12 +67,12 @@ fizzbuzz()
 
 // /////////////////////////////////////////////////////////////////////////////////////////
 
-console.log('fizzbuzz with a dynamic array of numbers and a dynamic array of strings')
+console.log('\nfizzbuzz with a dynamic array of numbers and a dynamic array of strings\n')
 
 fizzbuzz = function (nums, strings, max) {
   for (let i = 0; i <= max; i++) {
     let output = ''
-    for (let index = 1; index <= nums.length; index++) {
+    for (let index = 0; index < nums.length; index++) {
       if (!(i % nums[index])) { output += strings[index] }
     }
     output ? console.log(output) : console.log(i)
@@ -90,7 +90,7 @@ fizzbuzz([3, 5, 4], ['fizz', 'buzz', 'fuzz'], 100)
 //
 // /////////////////////////////////////////////////////////////////////////////////////////
 
-console.log('fizzbuzz with a dynamic array of numbers and a dynamic array of strings and array methods')
+console.log('\nfizzbuzz with a dynamic array of numbers and a dynamic array of strings and array methods\n')
 
 fizzbuzz = function (nums, strings, max) {
   for (let i = 1; i <= max; i++) {
@@ -110,7 +110,7 @@ fizzbuzz([3, 5, 4], ['fizz', 'buzz', 'fuzz'], 100)
 
 // /////////////////////////////////////////////////////////////////////////////////////////
 
-console.log('fizzbuzz with a dynamic array of objects')
+console.log('\nfizzbuzz with a dynamic array of objects\n')
 
 fizzbuzz = function (values, max) {
   for (let i = 1; i <= max; i++) {
@@ -120,7 +120,7 @@ fizzbuzz = function (values, max) {
   }
 }
 
-fizzbuzz([{number: 3, word: 'fizz'}, {number: 5, word: 'buzz'}, {number: 6, word: 'muzz'}, {number: 4, word: 'rizz'}], 360)
+fizzbuzz([{number: 3, word: 'fizz'}, {number: 5, word: 'buzz'}, {number: 6, word: 'muzz'}, {number: 4, word: 'rizz'}], 60)
 // fizzbuzz(values, max) console logs from 1 to max value
 // values is an array of objects
 // each object contains the keys number and word
