@@ -8,9 +8,6 @@ body {
 }
 
 #fizzbuzz-button {
-  margin: 1% 25%;
-  width: 50%;
-  height: 50%;
   font-size: 3rem;
   text-align: center;
   background-color: black;
@@ -27,10 +24,18 @@ body {
   }
 }
 
+input[type="number"] {
+  height: 3rem;
+}
+
+#fizzbuzz-output {
+  height: 50vh;
+  overflow-y: auto;
+}
+
 #numbers {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
 }
 
 .number {
@@ -54,6 +59,11 @@ body {
   &:active {
     background-color: darkgreen;
   }
+}
+
+.number-picked {
+  background-color: red;
+  cursor: auto;
 }
 
 #words {
@@ -88,6 +98,8 @@ body {
 #page {
   width: 100vw;
   height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
   max-width: 100%;
   background-color: DarkSlateGrey;
   display: flex;

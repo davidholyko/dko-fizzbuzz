@@ -1,4 +1,5 @@
 const store = require('../store')
+const storeActions = require('./store-actions')
 const view = require('./view')
 const fizzbuzz = require('./fizzbuzz')
 const getFormFields = require('../../../lib/get-form-fields')
@@ -9,7 +10,7 @@ const onNumberClick = () => {
 
   const number = $(event.target).data('number')
   const word = $(event.target).data('word')
-  if (store.inputs.includes(number)) { return }
+  if (store.numbers.includes(number)) { return }
 
   view.changeColor(event)
   store.inputs.push({number, word})
@@ -19,15 +20,20 @@ const onNumberClick = () => {
 }
 
 const onFizzBuzzClick = () => {
-  console.log('onFizzBuzzClick')
+  console.log('inputMaxValue')
+  event.preventDefault()
 
-  const maxValue = getFormFields(event.target)
-  fizzbuzz(store.inputs, maxValue)
+  $('#fizzbuzz-output').empty()
+  view.resetColors()
+
+  const input = getFormFields(event.target)
+  fizzbuzz(store.inputs, input.maxValue)
+  storeActions.resetStore()
 }
 
 const addHandlers = () => {
   $('#numbers').on('click', '.number', onNumberClick)
-  $('#fizzbuzz-button').on('click', onFizzBuzzClick)
+  $('#max-value-form').on('submit', onFizzBuzzClick)
 }
 
 module.exports = {

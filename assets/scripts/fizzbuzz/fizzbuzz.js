@@ -3,8 +3,9 @@ const fizzbuzz = function (values, max) {
   for (let i = 1; i <= max; i++) {
     let output = ''
     values.forEach((item, index) => { if (!(i % values[index].number)) { output += values[index].word } })
-    output ? console.log(output) : console.log(i)
-    output ? $('#fizzbuzz-output').append(output) : $('#fizzbuzz-output').append(i)
+    setTimeout(() => {
+      output ? $('#fizzbuzz-output').append(`<h1>${i}: ${output}</h1>`) : $('#fizzbuzz-output').append(`<h1>${i}: ${i}</h1>`)
+    }, 1000)
   }
 }
 

@@ -22,14 +22,11 @@
       <div id="page-content">
         <div id="numbers"></div>
         <!-- <div id="words"></div> -->
-        <form id="max-value-form">
-          <input type="number" min="15" max="256">
-          <input type="submit">
+        <form id="max-value-form" class="d-flex flex-column col-12 align-items-center my-3">
+          <input id="fizzbuzz-number-input" class="col-9" type="number" min="100" max="10000" name="maxValue" value="100">
+          <input id="fizzbuzz-button" class="col-9" type="submit" value="Generate Fizzbuzz">
         </form>
-        <div id="fizzbuzz-button">Generate FizzBuzz</div>
-        <div id="fizzbuzz-output">
-
-        </div>
+        <div id="fizzbuzz-output" class=""></div>
       </div>
     </div>
   </div>

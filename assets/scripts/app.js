@@ -8,10 +8,10 @@
 
 const view = require('./fizzbuzz/view')
 const events = require('./fizzbuzz/events')
-const storeSkeleton = require('./fizzbuzz/store-skeleton')
+const storeActions = require('./fizzbuzz/store-actions')
 
 $(() => {
-  storeSkeleton.initializeStore()
+  storeActions.initializeStore()
   events.addHandlers()
   view.onPageLoad()
 })

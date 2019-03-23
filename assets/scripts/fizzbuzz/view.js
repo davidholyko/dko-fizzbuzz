@@ -9,8 +9,10 @@ const generateButtons = () => {
 }
 
 const changeColor = event => {
-  $(event.target).css({'background-color': 'red', 'cursor': 'auto'})
+  $(event.target).addClass('number-picked')
 }
+
+const resetColors = () => { $('#numbers').children().removeClass('number-picked') }
 
 const onPageLoad = () => {
   generateButtons()
@@ -18,5 +20,6 @@ const onPageLoad = () => {
 
 module.exports = {
   onPageLoad,
-  changeColor
+  changeColor,
+  resetColors
 }
