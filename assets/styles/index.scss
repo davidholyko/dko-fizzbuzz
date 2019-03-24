@@ -44,13 +44,14 @@ body {
   }
 }
 
-input[type="number"] {
+input[type="number"],
+input[type="text"] {
   height: 3rem;
 }
 
 #fizzbuzz-output {
-  height: 50vh;
   overflow-y: auto;
+  max-width: 100%;
 }
 
 #numbers {
@@ -113,6 +114,10 @@ input[type="number"] {
   &:active {
     background-color: #E75480;
   }
+}
+
+#user-feedback {
+  height: 4rem;
 }
 
 #page {

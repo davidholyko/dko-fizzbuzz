@@ -1,5 +1,6 @@
 const store = require('../store')
 const storeActions = require('./store-actions')
+const htmlActions = require('./html-actions')
 const view = require('./view')
 const fizzbuzz = require('./fizzbuzz')
 const getFormFields = require('../../../lib/get-form-fields')
@@ -35,8 +36,10 @@ const onGenerateNumber = () => {
   event.preventDefault()
   const input = getFormFields(event.target)
 
-  if (store.addedNumbers.includes(input.number)) { return }
-  if (store.addedWords.includes(input.word)) { return }
+  if (store.addedNumbers.includes(input.number.toString())) { return htmlActions.displayErrorMessage(input.number) }
+  if (store.addedWords.includes(input.word)) { return htmlActions.displayErrorMessage(input.word) }
+  if (store.defaultNumbers.includes(input.number.toString())) { return htmlActions.displayErrorMessage(input.number) }
+  if (store.defaultWords.includes(input.word)) { return htmlActions.displayErrorMessage(input.word) }
 
   store.addedNumbers.push(input.number)
   store.addedWords.push(input.word)
@@ -48,6 +51,10 @@ const onGenerateNumber = () => {
     data-word=${input.word}
     class="number">${input.number}</button>`
   $('#numbers').append(element)
+
+  $('form').trigger('reset')
+
+  console.log(store)
 }
 
 const addHandlers = () => {
