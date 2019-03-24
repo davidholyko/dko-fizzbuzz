@@ -1,129 +1,228 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+# From Static Fizzbuzz to Dynamic Fizzbuzz
+## Below follows my progression of how I solved fizzbuzz in JavaScript 
 
-# browser-template
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
 
-## Installation
-
-1. [Download](../../archive/master.zip) this template.
-    - **Do Not Fork And Clone**
-    - Click the "Clone or Download" button and select "Download Zip".
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
-    your project.
-    - You can search for all instances of text in Atom by pressing
-    `commant + shift + f` on Mac or `ctrl + shift + f` on WSL.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
-1. Follow the instructions on your new repository's setup page. For details on
-   how to push to Github, refer to the section on Github entitled "…or push an existing
-   repository from the command line." Further documentation can be found [here](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/).
-
-## Structure
-
-### Scripts
-
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/app.js`](assets/scripts/app.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
-
-### Config
-
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`assets/scripts/config.js`](assets/scripts/config.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
-
-### Styles
-
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
-
-### Forms and Using `getFormFields`
-
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
-
-### Deployment
-
-To deploy a browser-template based SPA, run `grunt deploy`.
-
-## Adding Images
-
-To add images to your project, you must store them in the `public` directory.
-To use the image in HTML or CSS, write the path to the image like this:
-
-```html
-<img src="public/cat.jpg">
 ```
-or
-```css
-#my-cool-div {
-  background-image: url('public/cat.jpg')
-}
-```
+console.log('\nfizzbuzz the most straight forward way\n')
 
-Note that there's no `./` or `/` in front of `public/filename.jpg`.
-
-## Adding Fonts
-
-To add custom fonts to your app, you can either use a CDN like Google Fonts, or
-you can download the fonts and save them in the `public` directory. If you use
-the former method, follow the directions on the website providing the fonts.
-
-For local fonts, put the files in `public`, and then import and use them in a
-`.scss` file like this:
-
-```scss
-@font-face {
-  font-family: 'Nature Beauty';
-  src: url('public/Nature-Beauty.ttf') format('truetype');
+let fizzbuzz = () => {
+  for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log('Fizzbuzz')
+    } else if (i % 3 === 0) {
+      console.log('Fizz')
+    } else if (i % 5 === 0) {
+      console.log('Buzz')
+    } else console.log(i)
+  }
 }
 
-.element-with-custom-font {
-  font-family: 'Nature Beauty';
+fizzbuzz()
+
+// fizzbuzz() console logs 1 to 100 as the number, fizz, buzz, or fizzbuzz
+// all values are static
+// output is a variable that is overwritten in if statements if the expression is true
+// when i = 15:
+//      output = 15             line 5 expression is true; console logs Fizzbuzz
+
+// /////////////////////////////////////////////////////////////////////////////////////////
+
+console.log('\nfizzbuzz with replacement\n')
+
+fizzbuzz = () => {
+  for (let i = 1; i <= 100; i++) {
+    let output = i
+    if (i % 3 === 0) { output = 'fizz' }
+    if (i % 5 === 0) { output = 'buzz' }
+    if (i % 5 === 0 && i % 3 === 0) { output = 'fizzbuzz' }
+    console.log(output)
+  }
 }
+
+fizzbuzz()
+
+// fizzbuzz() console logs 1 to 100 as the number, fizz, buzz, or fizzbuzz
+// all values are static
+// output is a variable that is overwritten in if statements if the expression is true
+// when i = 15:
+//      output = 15             line 3 sets output to 15
+//      output = 'fizz'         line 4 overwrites previous output 15 to 'fizz'
+//      output = 'buzz'         line 5 overwrites previous output 'fizz' to 'buzz'
+//      output = 'fizzbuzz'     line 6 overwrites previous output 'buzz' to 'fizzbuzz'
+
+// /////////////////////////////////////////////////////////////////////////////////////////
+
+console.log('\nfizzbuzz with loop skipping using keyword continue\n')
+
+fizzbuzz = () => {
+  for (let i = 1; i <= 100; i++) {
+    if (i % 5 === 0 && i % 3 === 0) { console.log('fizzbuzz'); continue }
+    if (i % 3 === 0) { console.log('fizz'); continue }
+    if (i % 5 === 0) { console.log('buzz'); continue }
+    console.log(i)
+  }
+}
+
+fizzbuzz()
+
+// fizzbuzz() console logs 1 to 100 as the number, fizz, buzz, or fizzbuzz
+// all values are static
+// when the if expression is true, console log the corresponding string and do keyword continue
+// keyword continue skips all the code below and goes to the next iteration in the loop
+// when i = 15
+//      line 30: console logs 'fizzbuzz' and does continue which skips to i++
+// i = 16
+
+// /////////////////////////////////////////////////////////////////////////////////////////
+
+console.log('\nfizzbuzz with appending strings\n')
+
+fizzbuzz = () => {
+  for (let i = 1; i <= 100; i++) {
+    let output = ''
+    if (i % 3 === 0) { output += 'fizz' }
+    if (i % 5 === 0) { output += 'buzz' }
+    if (output) { console.log(output) } else { console.log(i) }
+  }
+}
+
+fizzbuzz()
+
+// fizzbuzz() console logs 1 to 100 as the number, fizz, buzz, or fizzbuzz
+// all values are static
+// output is a variable that is concatinated with strings
+// when i = 15:
+//      output = ''              line 45 sets output to empty string ''
+//      output += 'fizz'         line 46 appends 'fizz' to the previous output string '' to create 'fizz'
+//      output += 'buzz'         line 47 appends output 'fizz' with string 'buzz' to create 'fizzbuzz'
+// if statement:
+//    if output is true (is a string with length of at least 1)
+//    console log the string output
+//    if output is not true (is a an empty sting)
+//    console log the i (which is a number)
+
+// /////////////////////////////////////////////////////////////////////////////////////////
+
+console.log('\nfizzbuzz with appending dynamic strings\n')
+
+fizzbuzz = (stringOne, stringTwo) => {
+  for (let i = 1; i <= 100; i++) {
+    let output = ''
+    if (i % 3 === 0) { output += stringOne }
+    if (i % 5 === 0) { output += stringTwo }
+
+    if (output) { console.log(output) } else { console.log(i) }
+  }
+}
+
+fizzbuzz('fezz', 'bizz')
+
+// fizzbuzz() console logs 1 to 100 as the number, fizz, buzz, or fizzbuzz
+// all values are static
+// output is a variable that is concatinated with strings
+// when i = 15:
+//      output = ''              line 45 sets output to ''
+//      output += 'fezz'         line 46 appends string 'fezz' to the previous output string '' to create 'fezz'
+//      output += 'bizz'         line 47 appends string 'bizz' with output string 'fezz' to create 'fezzbizz'
+// if statement:
+//    if output is true (is a string with length of at least 1)
+//    console log the string output
+//    if output is not true (is a an empty sting)
+//    console log the i (which is a number)
+
+// /////////////////////////////////////////////////////////////////////////////////////////
+
+console.log('\nfizzbuzz with dynamic values and appending dynamic strings \n')
+
+fizzbuzz = (numberOne, numberTwo, stringOne, stringTwo) => {
+  for (let i = 1; i <= 100; i++) {
+    let output = ''
+    if (!(i % numberOne)) { output += stringOne }
+    if (i % numberTwo === 0) { output += stringTwo }
+
+    if (output) { console.log(output) } else { console.log(i) }
+  }
+}
+
+fizzbuzz(6, 7, 'fezz', 'bizz')
+
+// fizzbuzz() console logs 1 to 100 as the number, fizz, buzz, or fizzbuzz
+// all values are static
+// output is a variable that is concatinated with strings
+// when i = 42:
+//      output = ''              line 45 sets output to ''
+//      output += 'fizz'         line 46 appends 'fizz' to the previous output string '' to create 'fizz'
+//      output += 'buzz'         line 47 appends output 'fizz' with string 'buzz' to create 'fizzbuzz'
+
+// /////////////////////////////////////////////////////////////////////////////////////////
+
+console.log('\nfizzbuzz with a dynamic array of numbers and a dynamic array of strings\n')
+
+fizzbuzz = function (nums, strings, max) {
+  for (let i = 0; i <= max; i++) {
+    let output = ''
+    for (let index = 0; index < nums.length; index++) {
+      if (!(i % nums[index])) { output += strings[index] }
+    }
+    output ? console.log(output) : console.log(i)
+  }
+}
+
+fizzbuzz([3, 5, 4], ['fizz', 'buzz', 'fuzz'], 100)
+
+// fizzbuzz(nums, strings, max) console logs 1 to max as the number, fizz, buzz, or fizzbuzz
+// nums is an array of numbers and strings is an array of strings which contain corresponding values
+// maxValue is a number
+// ternary syntax <expression> ? <action> : <action>
+// is functionally the same as if else statement
+// when i = 60:
+//      output = ''               line 66 sets output to ''
+//      output = 'fizz'           line 99 appends strings[index] to output string ''
+//                                    strings is an array and index is 0
+//                                    value of strings[0] is the 0th item in strings which is 'fizz'
+//      output = 'fizzbuzz'       line 99
+//                                    strings is an array and index is 1
+//                                    value of strings[1] is the 0th item in strings which is 'buzz'
+//      output = 'fizzbuzzfuzz'   line 99
+//                                    strings is an array and index is 1
+//                                    value of strings[1] is the 0th item in strings which is 'buzz'
+// /////////////////////////////////////////////////////////////////////////////////////////
+
+console.log('\nfizzbuzz with a dynamic array of numbers and a dynamic array of strings and array methods\n')
+
+fizzbuzz = function (nums, strings, max) {
+  for (let i = 1; i <= max; i++) {
+    let output = ''
+    nums.forEach((item, index) => { if (!(i % nums[index])) { output += strings[index] } })
+    output ? console.log(output) : console.log(i)
+  }
+}
+
+fizzbuzz([3, 5, 4], ['fizz', 'buzz', 'fuzz'], 100)
+
+// fizzbuzz(nums, strings, max) console logs from 1 to maxValue the index or the concatinated string if divisible
+// .forEach is an array method that is used on an array
+// for each item in the array that is invoked upon (which is nums in this case)
+// do an action
+// nums is an array of numbers and strings is an array of strings
+// arrays contain corresponding values
+
+// /////////////////////////////////////////////////////////////////////////////////////////
+
+console.log('\nfizzbuzz with a dynamic array of objects\n')
+
+fizzbuzz = function (values, max) {
+  for (let i = 1; i <= max; i++) {
+    let output = ''
+    values.forEach((item, index) => { if (!(i % values[index].number)) { output += values[index].word } })
+    output ? console.log(output) : console.log(i)
+  }
+}
+
+fizzbuzz([{number: 3, word: 'fizz'}, {number: 5, word: 'buzz'}, {number: 6, word: 'muzz'}, {number: 4, word: 'rizz'}], 60)
+
+// fizzbuzz(values, max) console logs from 1 to max value
+// values is an array of objects
+// each object contains the keys number and word
 ```
-
-## Tasks
-
-Developers should run these often!
-
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
-- `grunt deploy`: builds and deploys master branch
-
-
-## Additional Resources
-
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
-
-## [License](LICENSE)
-
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.

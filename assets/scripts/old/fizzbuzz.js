@@ -3,7 +3,7 @@ console.log('\nfizzbuzz the most straight forward way\n')
 let fizzbuzz = () => {
   for (let i = 1; i <= 100; i++) {
     if (i % 3 === 0 && i % 5 === 0) {
-      console.log('FizzBuzz')
+      console.log('Fizzbuzz')
     } else if (i % 3 === 0) {
       console.log('Fizz')
     } else if (i % 5 === 0) {
@@ -18,10 +18,7 @@ fizzbuzz()
 // all values are static
 // output is a variable that is overwritten in if statements if the expression is true
 // when i = 15:
-//      output = 15             line 3 sets output to 15
-//      output = 'fizz'         line 4 overwrites previous output 15 to 'fizz'
-//      output = 'buzz'         line 5 overwrites previous output 'fizz' to 'buzz'
-//      output = 'fizzbuzz'     line 6 overwrites previous output 'buzz' to 'fizzbuzz'
+//      output = 15             line 5 expression is true; console logs Fizzbuzz
 
 // /////////////////////////////////////////////////////////////////////////////////////////
 

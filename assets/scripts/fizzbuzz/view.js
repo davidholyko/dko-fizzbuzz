@@ -5,7 +5,14 @@ const generateButtons = () => {
   const words = ['fizz', 'bizz', 'buzz', 'fuzz', 'fazz', 'bazz', 'fezz', 'bezz', 'fozz', 'bozz']
   for (let i = 3; i < 13; i++) {
     const element =
-    `<button id="number-${i}" data-number=${i} data-word=${words[i - 3]} class="number">${i}</button>`
+    `<button
+     id="number-${i}"
+     data-number=${i}
+     data-word=${words[i - 3]}
+     data-toggle="tooltip"
+     data-placement="top"
+     title="Add { ${i}: ${words[i - 3]} } to arguments"
+     class="number">${i}</button>`
     $('#numbers').append(element)
     store.defaultNumbers.push(i.toString())
   }
@@ -26,9 +33,6 @@ const setOutputHeight = () => {
   const elementFour = $('#forms').outerHeight()
   const remainingHeight = elementOne + elementTwo + elementThree + elementFour
   const pageHeight = $('body').height()
-  console.log(pageHeight)
-  console.log(remainingHeight)
-  console.log(pageHeight - remainingHeight)
   $('#fizzbuzz-output').height(pageHeight - remainingHeight - 16)
 }
 
