@@ -5,12 +5,16 @@ const initializeStore = () => {
   store.numbers = []
   store.words = []
   store.inputs = []
+  store.addedNumbers = []
+  store.addedWords = []
 }
 
 const resetStore = () => {
   store.numbers = []
   store.words = []
   store.inputs = []
+  store.addedNumbers = []
+  store.addedWords = []
 }
 
 module.exports = {

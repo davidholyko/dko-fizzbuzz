@@ -23,13 +23,13 @@
         <div id="numbers" class="col-12"></div>
         <!-- <div id="words"></div> -->
         <form id="max-value-form" class="col-6 my-3 text-center">
-          <input id="fizzbuzz-number-input" required class="col-12" type="number" min="100" max="10000" name="maxValue" value="100">
-          <input id="fizzbuzz-button" class="col-12" type="submit" value="Fizzbuzz!">
+          <input id="fizzbuzz-number-input" required class="col-12" type="number" min="100" max="10000" name="maxValue" value="100" placeholder="minimum 100 max 10000">
+          <input id="fizzbuzz-button" class="col-12" type="submit" value="Fizzbuzz">
         </form>
 
         <form id="generate-button-form" class="col-6 my-3 text-center">
           <input id="generate-fizzbuzz-number-input" class="col-12" required type="number" min="13" max="50" name="number" placeholder="Enter a Number from 13-50">
-          <input id="generate-fizzbuzz-word-input" class="col-12" required type="text" pattern="[a-z]{4}" name="word" placeholder="Enter a four letter all lowercase word">
+          <input id="generate-fizzbuzz-word-input" class="col-12" required type="text" pattern="[a-z]{4}" name="word" placeholder="Enter a four letter all lowercase word" minlength="4" maxlength="4">
           <input id="generate-fizzbuzz-button" class="col-12" type="submit" value="Add Your Own Fizzbuzz Combination">
         </form>
         <div id="fizzbuzz-output" class="col-12 p-5"></div>

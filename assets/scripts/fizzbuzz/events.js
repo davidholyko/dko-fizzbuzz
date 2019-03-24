@@ -16,7 +16,6 @@ const onNumberClick = () => {
   store.inputs.push({number, word})
   store.numbers.push(number)
   store.words.push(word)
-  console.log(store)
 }
 
 const onFizzBuzzClick = () => {
@@ -35,7 +34,20 @@ const onGenerateNumber = () => {
   console.log('onGenerateNumber')
   event.preventDefault()
   const input = getFormFields(event.target)
-  console.log(input)
+
+  if (store.addedNumbers.includes(input.number)) { return }
+  if (store.addedWords.includes(input.word)) { return }
+
+  store.addedNumbers.push(input.number)
+  store.addedWords.push(input.word)
+
+  const element =
+    `<button
+    id="number-${input.number}"
+    data-number=${input.number}
+    data-word=${input.word}
+    class="number">${input.number}</button>`
+  $('#numbers').append(element)
 }
 
 const addHandlers = () => {
