@@ -16,17 +16,23 @@
 <body>
   <div id="page">
     <div id="page-container">
-      <div id="page-header">
-        <h1 class="text-center">FizzBuzz</h1>
-      </div>
-      <div id="page-content">
-        <div id="numbers"></div>
+      <h1 class="text-center bg-dark text-light">FizzBuzz</h1>
+      <p><span class="mx-4"></span>Description: </p>
+      <div id="page-header"></div>
+      <div id="page-content" class="d-flex flex-wrap">
+        <div id="numbers" class="col-12"></div>
         <!-- <div id="words"></div> -->
-        <form id="max-value-form" class="d-flex flex-column col-12 align-items-center my-3">
-          <input id="fizzbuzz-number-input" class="col-9" type="number" min="100" max="10000" name="maxValue" value="100">
-          <input id="fizzbuzz-button" class="col-9" type="submit" value="Generate Fizzbuzz">
+        <form id="max-value-form" class="col-6 my-3 text-center">
+          <input id="fizzbuzz-number-input" required class="col-12" type="number" min="100" max="10000" name="maxValue" value="100">
+          <input id="fizzbuzz-button" class="col-12" type="submit" value="Fizzbuzz!">
         </form>
-        <div id="fizzbuzz-output" class=""></div>
+
+        <form id="generate-button-form" class="col-6 my-3 text-center">
+          <input id="generate-fizzbuzz-number-input" class="col-12" required type="number" min="13" max="50" name="number" placeholder="Enter a Number from 13-50">
+          <input id="generate-fizzbuzz-word-input" class="col-12" required type="text" pattern="[a-z]{4}" name="word" placeholder="Enter a four letter all lowercase word">
+          <input id="generate-fizzbuzz-button" class="col-12" type="submit" value="Add Your Own Fizzbuzz Combination">
+        </form>
+        <div id="fizzbuzz-output" class="col-12 p-5"></div>
       </div>
     </div>
   </div>

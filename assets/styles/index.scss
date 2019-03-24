@@ -24,6 +24,26 @@ body {
   }
 }
 
+#generate-fizzbuzz-button {
+  font-size: 2rem;
+  word-wrap: break-word;
+  text-align: center;
+  white-space: initial;
+  width: 100%;
+  background-color: black;
+  color: white;
+  border-radius: 1rem;
+
+  &:hover {
+    background-color: silver;
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: blue;
+  }
+}
+
 input[type="number"] {
   height: 3rem;
 }

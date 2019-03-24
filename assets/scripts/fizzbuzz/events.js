@@ -31,9 +31,17 @@ const onFizzBuzzClick = () => {
   storeActions.resetStore()
 }
 
+const onGenerateNumber = () => {
+  console.log('onGenerateNumber')
+  event.preventDefault()
+  const input = getFormFields(event.target)
+  console.log(input)
+}
+
 const addHandlers = () => {
   $('#numbers').on('click', '.number', onNumberClick)
   $('#max-value-form').on('submit', onFizzBuzzClick)
+  $('#generate-button-form').on('submit', onGenerateNumber)
 }
 
 module.exports = {
