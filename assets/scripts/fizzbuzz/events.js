@@ -20,11 +20,13 @@ const onNumberClick = () => {
 }
 
 const onFizzBuzzClick = () => {
-  console.log('inputMaxValue')
+  console.log('onFizzBuzzClick')
   event.preventDefault()
 
   $('#fizzbuzz-output').empty()
   view.resetColors()
+
+  if (!store.numbers.length) { htmlActions.displayEmpty() }
 
   const input = getFormFields(event.target)
   fizzbuzz(store.inputs, input.maxValue)
