@@ -135,3 +135,11 @@ input[type="text"] {
   width: 80%;
   background-color: white;
 }
+
+.tooltip-inner {
+  background-color: rgba(0,0,0,0.9);
+  color: #FFFFFF;
+  padding: 15px;
+  font-size: 1rem;
+  max-width: 500px;
+}

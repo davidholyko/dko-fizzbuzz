@@ -50,7 +50,8 @@ const onGenerateNumber = () => {
     data-number=${input.number}
     data-word=${input.word}
     data-toggle="tooltip"
-    title="Add { ${input.number}: ${input.word} } to arguments"
+    data-container="body"
+    title="Add { Number ${input.number}: Word ${input.word} } to arguments"
     class="number">${input.number}</button>`
   $('#numbers').append(element)
 
@@ -63,7 +64,7 @@ const addHandlers = () => {
   $('#numbers').on('click', '.number', onNumberClick)
   $('#max-value-form').on('submit', onFizzBuzzClick)
   $('#generate-button-form').on('submit', onGenerateNumber)
-  $('[data-toggle="tooltip"]').tooltip()
+  $('body').tooltip({ selector: '[data-toggle="tooltip"]', trigger: 'hover' })
 }
 
 module.exports = {

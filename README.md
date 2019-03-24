@@ -1,5 +1,7 @@
 # From Static Fizzbuzz to Dynamic Fizzbuzz
-## Below follows my progression of how I solved fizzbuzz in JavaScript 
+## Below follows my progression of how I solved fizzbuzz in JavaScript
+### Executable js file below is located in assets/scripts/old/fizzbuzz.js
+### Progresses from plain fizzbuzz to fizzbuzz with arguments to fizzbuzz using objects
 
 
 
@@ -24,7 +26,7 @@ fizzbuzz()
 // all values are static
 // output is a variable that is overwritten in if statements if the expression is true
 // when i = 15:
-//      output = 15             line 5 expression is true; console logs Fizzbuzz
+//      output = 15             if expression is true; console logs Fizzbuzz
 
 // /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -46,10 +48,10 @@ fizzbuzz()
 // all values are static
 // output is a variable that is overwritten in if statements if the expression is true
 // when i = 15:
-//      output = 15             line 3 sets output to 15
-//      output = 'fizz'         line 4 overwrites previous output 15 to 'fizz'
-//      output = 'buzz'         line 5 overwrites previous output 'fizz' to 'buzz'
-//      output = 'fizzbuzz'     line 6 overwrites previous output 'buzz' to 'fizzbuzz'
+//      output = 15             let output = i -> sets output to 15
+//      output = 'fizz'         if (i % 3 === 0) -> overwrites previous output 15 to 'fizz'
+//      output = 'buzz'         if (i % 5 === 0) -> previous output 'fizz' to 'buzz'
+//      output = 'fizzbuzz'     if (i % 3 === 0 && i % 5 === 0) -> previous output 'buzz' to 'fizzbuzz'
 
 // /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -71,7 +73,7 @@ fizzbuzz()
 // when the if expression is true, console log the corresponding string and do keyword continue
 // keyword continue skips all the code below and goes to the next iteration in the loop
 // when i = 15
-//      line 30: console logs 'fizzbuzz' and does continue which skips to i++
+//      console logs 'fizzbuzz' and does continue which skips to i++
 // i = 16
 
 // /////////////////////////////////////////////////////////////////////////////////////////
@@ -93,9 +95,9 @@ fizzbuzz()
 // all values are static
 // output is a variable that is concatinated with strings
 // when i = 15:
-//      output = ''              line 45 sets output to empty string ''
-//      output += 'fizz'         line 46 appends 'fizz' to the previous output string '' to create 'fizz'
-//      output += 'buzz'         line 47 appends output 'fizz' with string 'buzz' to create 'fizzbuzz'
+//      output = ''              let output = '' ->  sets output to empty string ''
+//      output += 'fizz'         if (i % 3 === 0) -> appends 'fizz' to the previous output string '' to create 'fizz'
+//      output += 'buzz'         if (i % 5 === 0) ->appends output 'fizz' with string 'buzz' to create 'fizzbuzz'
 // if statement:
 //    if output is true (is a string with length of at least 1)
 //    console log the string output
@@ -122,9 +124,9 @@ fizzbuzz('fezz', 'bizz')
 // all values are static
 // output is a variable that is concatinated with strings
 // when i = 15:
-//      output = ''              line 45 sets output to ''
-//      output += 'fezz'         line 46 appends string 'fezz' to the previous output string '' to create 'fezz'
-//      output += 'bizz'         line 47 appends string 'bizz' with output string 'fezz' to create 'fezzbizz'
+//      output = ''              let output = '' -> sets output to ''
+//      output += 'fezz'         if (i % 3 === 0) -> appends string 'fezz' to the previous output string '' to create 'fezz'
+//      output += 'bizz'         if (i % 5 === 0) appends string 'bizz' with output string 'fezz' to create 'fezzbizz'
 // if statement:
 //    if output is true (is a string with length of at least 1)
 //    console log the string output
@@ -151,9 +153,9 @@ fizzbuzz(6, 7, 'fezz', 'bizz')
 // all values are static
 // output is a variable that is concatinated with strings
 // when i = 42:
-//      output = ''              line 45 sets output to ''
-//      output += 'fizz'         line 46 appends 'fizz' to the previous output string '' to create 'fizz'
-//      output += 'buzz'         line 47 appends output 'fizz' with string 'buzz' to create 'fizzbuzz'
+//      output = ''              let output = '' sets output to ''
+//      output += 'fizz'         if (i % numberOne === 0) 'fizz' to the previous output string '' to create 'fizz'
+//      output += 'buzz'         if (i % numberTwo === 0) -> appends output 'fizz' with string 'buzz' to create 'fizzbuzz'
 
 // /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -177,14 +179,15 @@ fizzbuzz([3, 5, 4], ['fizz', 'buzz', 'fuzz'], 100)
 // ternary syntax <expression> ? <action> : <action>
 // is functionally the same as if else statement
 // when i = 60:
-//      output = ''               line 66 sets output to ''
-//      output = 'fizz'           line 99 appends strings[index] to output string ''
+//      output = ''               let output = '' -> sets output to ''
+//      output = 'fizz'           if (!(i % nums[index])) ->
+//                                    appends strings[index] to output string ''
 //                                    strings is an array and index is 0
 //                                    value of strings[0] is the 0th item in strings which is 'fizz'
-//      output = 'fizzbuzz'       line 99
+//      output = 'fizzbuzz'       if (!(i % nums[index])) ->
 //                                    strings is an array and index is 1
 //                                    value of strings[1] is the 0th item in strings which is 'buzz'
-//      output = 'fizzbuzzfuzz'   line 99
+//      output = 'fizzbuzzfuzz'   if (!(i % nums[index])) ->
 //                                    strings is an array and index is 1
 //                                    value of strings[1] is the 0th item in strings which is 'buzz'
 // /////////////////////////////////////////////////////////////////////////////////////////

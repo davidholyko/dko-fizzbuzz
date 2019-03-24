@@ -10,8 +10,8 @@ const generateButtons = () => {
      data-number=${i}
      data-word=${words[i - 3]}
      data-toggle="tooltip"
-     data-placement="top"
-     title="Add { ${i}: ${words[i - 3]} } to arguments"
+     data-html="true"
+     title="Add { Number ${i}: Word ${words[i - 3]} } to fizzbuzz rules"
      class="number">${i}</button>`
     $('#numbers').append(element)
     store.defaultNumbers.push(i.toString())
