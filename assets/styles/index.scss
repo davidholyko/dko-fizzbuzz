@@ -49,10 +49,7 @@ input[type="text"] {
   height: 3rem;
 }
 
-#fizzbuzz-output {
-  overflow-y: auto;
-  max-width: 100%;
-}
+#fizzbuzz-output {}
 
 #numbers {
   display: flex;
@@ -122,9 +119,8 @@ input[type="text"] {
 
 #page {
   width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
-  overflow-y: auto;
+  min-height: 100vh;
+  // max-height: 100vh;
   max-width: 100%;
   background-color: DarkSlateGrey;
   display: flex;

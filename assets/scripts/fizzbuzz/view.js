@@ -38,8 +38,8 @@ const setOutputHeight = () => {
 
 const onPageLoad = () => {
   generateButtons()
-  setOutputHeight()
-  $(window).resize(setOutputHeight)
+  // setOutputHeight()
+  // $(window).resize(setOutputHeight)
 }
 
 module.exports = {
